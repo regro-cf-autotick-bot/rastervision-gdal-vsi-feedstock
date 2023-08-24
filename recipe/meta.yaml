@@ -1,5 +1,5 @@
 {% set name = "rastervision-gdal-vsi" %}
-{% set version = "0.13.1" %}
+{% set version = "0.21" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rastervision_gdal_vsi-{{ version }}.tar.gz
-  sha256: 45d2179f42f2bf94b39967643e2ab3d4b9be0bdefc81cc2c7d6448ef3b076661
+  sha256: bd3e30863a5a8cbe3325eb76557050af7d871533bd7bc66e14b3392a849b01df
   patches:
     - 0001-fix-imports.patch
 
