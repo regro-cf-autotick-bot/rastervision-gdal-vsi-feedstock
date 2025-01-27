@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rastervision_gdal_vsi-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rastervision_gdal_vsi-{{ version }}.tar.gz
   sha256: 45d2179f42f2bf94b39967643e2ab3d4b9be0bdefc81cc2c7d6448ef3b076661
   patches:
     - 0001-fix-imports.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -22,10 +22,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - gdal ==3.0.4
-    - python >=3.6
+    - python >={{ python_min }}
     - rastervision-pipeline ==0.13.1
 
 test:
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/azavea/raster-vision
